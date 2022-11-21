@@ -31,8 +31,14 @@ The resistors and the DHT22 sensor are soldered onto ESP8266 so the kit is fixed
 
 Below, the pictures show how the ultrasonic rangefinder and the bulb are connected to the basic plant monitor showed above. I used a zinc board for extension pins as the breadboard is too large in size so not suitable but the extra equipments require for more pins to connect. The coding for this part is designed as the bulb will begin to flash if the ultrasonic device detect an object within 100cm distance, and the speed of flash bulb will increase as the distance between the object and the ultrasonic device decreases.
 
-## position of the sensor
+## Position of the sensor
+
+The figure elow shows the position of basic plant monitor when in use with a plant, the drawback of this prototype is that the distance between the nails are random, all depends on how the users insert them but the users are not suppose to gain the knowledge of the correct distance. Incorrect distance between the nails will result in incorrect values of resistance thus incorrect readings of moisture.
 ![3501668596212_ pic](https://user-images.githubusercontent.com/78373920/202162893-bd06e456-cbc3-4e50-8142-4d8096cdd395.jpg)
+
+As shown in the graph of data collected on the night of 15th of November which is in the next section. There’s a sudden rise and then drop between half past two and three, then the reading rise back permenantly to 80s after 3. The sudden change might be a leakage of water or a shift of places of the nails.  
+Therefore, I’m going to find out the maximum reading that the sensor can take by putting the nails into water and the readings of moisture goes up to 288. The problems occurs here as the maximum reading should be 1024 of maximum testing moisture when the nails are in a place full of water.
+
 ![3511668596212_ pic](https://user-images.githubusercontent.com/78373920/202162898-7ffd2496-584c-444c-b806-c02e142b21bc.jpg)
 
 
