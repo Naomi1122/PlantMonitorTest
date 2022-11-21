@@ -49,17 +49,21 @@ This is the final prototype of my plant monitor and how it is positioned with th
 
 
 ## Data visualisation
-The whole data visualised in the graph by telegraf in influxdb for the night. The peak value at beginning is when I watering the plant with a whole bottle of water. Then the abnormal values of moisture readings have been discussed in the section above.
+The whole data visualised in the graph by telegraf in influxdb for the night of using the basic prototype of plant monitor. The peak value at beginning is when I watering the plant with a whole bottle of water. Then the abnormal values of moisture readings have been discussed in the section above.
 <img width="1438" alt="test1" src="https://user-images.githubusercontent.com/78373920/202160364-83393011-c8bf-4ffb-afa5-e3a9cef84639.png">
 
-
-
-Data gathered when the nails are submerged in the water
-<img width="1243" alt="4" src="https://user-images.githubusercontent.com/78373920/202160377-6ba85fcb-9b8a-4871-bb25-2d8d9708ef2d.png">
+The moisture data read in the figure below is inaccurate, because the data is very unstable in the same soil without touching the nails and adding water. Therefore, more experiments are required.
 <img width="1246" alt="3" src="https://user-images.githubusercontent.com/78373920/202160380-4bbd7756-d25a-41ee-b7b3-b1e80e7fdff6.png">
 
-Data gather when the nails are in the correct position since the moisture reading is in between 10-15
+Data gathered when the nails are submerged in the water, we can see a sudden rise to 288 when the nails are submerged in water.
+<img width="1243" alt="4" src="https://user-images.githubusercontent.com/78373920/202160377-6ba85fcb-9b8a-4871-bb25-2d8d9708ef2d.png">
+
+
+Data gather when the nails are in the correct position since the moisture reading is in between 10-15, this suggests that the other parts of my plant monitor has been built in right place, only the distance needed to be amend to correct position and hold fixed.
 <img width="1244" alt="correct1" src="https://user-images.githubusercontent.com/78373920/202163617-aab76db4-cf4a-4596-b7af-ce65cc3f1d95.png">
 
+Below shows the data collected with the final prototype of the plant monitor, the three readings remains constant when the moisture dropped after a period of time, that's when I put the nails from water into soil.
 <img width="1245" alt="p3" src="https://user-images.githubusercontent.com/78373920/203049678-a9a4e2ce-4480-410d-8cc1-8d6fe5bfde1a.png">
+
+Another thing I want to specify as the readings changes several minutes after the environment of the sensor changed, therefore, it can be worthy to change the requency of uploading data from one minute to an hour for future long term use.
 
