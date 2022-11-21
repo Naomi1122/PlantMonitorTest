@@ -4,6 +4,18 @@
 
 
 ## construction of the physical prototype sensor
+
+| Hardware | Description |
+| --- | --- |
+| ESP8266 | For connecting to wifi and publish data to MQTT server |
+| DHT22 | Sensor for temperature and humidity |
+| ultrasonic rangefinder | detect movement of any approaches within certain distance |
+| LED bulb | connect with ultrasonic rangefinder to flash |
+| resistor | Limit the voltage to tolerant range |
+| nails | measure resistance between for moisture |
+| Raspberry Pi | Store and visualise the data |
+| board | Extension of pin connection |
+
 ![3541668596214_ pic](https://user-images.githubusercontent.com/78373920/202162719-599d699f-2209-420d-8df0-5733a5e260e4.jpg)
 ![3551668596214_ pic](https://user-images.githubusercontent.com/78373920/202162724-e8dd9d93-cd62-4c75-86ee-1757b02abdde.jpg)
 ![3561668596215_ pic](https://user-images.githubusercontent.com/78373920/202162726-2f0233d6-f625-4790-80ae-eb88eb3380ab.jpg)
