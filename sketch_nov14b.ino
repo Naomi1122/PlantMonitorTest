@@ -5,11 +5,13 @@
 #include <DHT.h>
 #include <DHT_U.h>
 
+// Wifi and MQTT
+#include "arduino_secrets.h" 
 
 #define DHTTYPE DHT22   // DHT 22  (AM2302), AM2321
 
 // Sensors - DHT22 and Nails
-uint8_t DHTPin = 12;        // on Pin 2 of the Huzzah
+uint8_t DHTPin = 12;        // on Pin 12 of the Huzzah
 uint8_t soilPin = 0;      // ADC or A0 pin on Huzzah
 float Temperature;
 float Humidity;
@@ -18,23 +20,22 @@ int sensorVCC = 13;
 int blueLED = 2;
 DHT dht(DHTPin, DHTTYPE);   // Initialize DHT sensor.
 
+const int trigPin = 16;       //assign pin 16 to trigger
+const int echoPin = 15;      //assign pin 2 to echo
+const int LED = 14;          //keep the LED on pin 13
+const boolean debug = true;  //variable to show hide debug info
 
-// Wifi and MQTT
-#include "arduino_secrets.h" 
-/*
-**** please enter your sensitive data in the Secret tab/arduino_secrets.h
-**** using format below
+// establish variables for duration of the ping, and the distance result in centimeters and one for LED blink rate:
+long duration, cm;
+int blinkrate = 0;
 
-#define SECRET_SSID "ssid name"
-#define SECRET_PASS "ssid password"
-#define SECRET_MQTTUSER "user name - eg student"
-#define SECRET_MQTTPASS "password";
- */
+
 
 const char* ssid = SECRET_SSID;
 const char* password = SECRET_PASS;
 const char* mqttuser = SECRET_MQTTUSER;
 const char* mqttpass = SECRET_MQTTPASS;
+
 
 ESP8266WebServer server(80);
 const char* mqtt_server = "mqtt.cetools.org";
@@ -50,17 +51,24 @@ Timezone GB;
 
 
 void setup() {
-  // Set up LED to be controllable via broker
-  // Initialize the BUILTIN_LED pin as an output
-  // Turn the LED off by making the voltage HIGH
-  pinMode(BUILTIN_LED, OUTPUT);     
-  digitalWrite(BUILTIN_LED, HIGH);  
+// initialize serial communication:
+  if (debug) {
+    Serial.begin(9600);
+    Serial.println("Starting blinker");
+  }
+  pinMode(LED, OUTPUT);
+  pinMode(trigPin, OUTPUT);  // declare the trigPin as an Output
+  pinMode(echoPin, INPUT);   // declare the echoPin as an Input
 
-  // Set up the outputs to control the soil sensor
-  // switch and the blue LED for status indicator
-  pinMode(sensorVCC, OUTPUT); 
+  // Set up LED to be controllable via broker
+  pinMode(BUILTIN_LED, OUTPUT);     // Initialize the BUILTIN_LED pin as an output
+  digitalWrite(BUILTIN_LED, HIGH);  // Turn the LED off by making the voltage HIGH
+
+  
+  
+  pinMode(sensorVCC, OUTPUT);   // Set the sensorVCC as the outputs to control the soil sensor
   digitalWrite(sensorVCC, LOW);
-  pinMode(blueLED, OUTPUT); 
+  pinMode(blueLED, OUTPUT);   // switch the blue LED for status indicator
   digitalWrite(blueLED, HIGH);
 
   // open serial connection for debug info
@@ -89,15 +97,48 @@ void loop() {
   if (minuteChanged()) {
     readMoisture();
     sendMQTT();
-    Serial.println(GB.dateTime("H:i:s")); // UTC.dateTime("l, d-M-y H:i:s.v T")
+    Serial.println(GB.dateTime("H:i:s")); // UTC.dateTime
   }
   
   client.loop();
+
+digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+
+  duration = pulseIn(echoPin, HIGH);
+  cm = microsecondsToCentimeters(duration);
+
+  if (cm < 100) {
+
+    if (cm < 30) {
+      blinkrate = map(cm, 1, 30, 10, 300);
+    } else if (cm < 90) {
+      blinkrate = map(cm, 30, 90, 300, 1000);
+    } else {
+      blinkrate = 0;
+    }
+
+
+    digitalWrite(LED, HIGH);  // turn the LED on (HIGH is the voltage level)
+    delay(blinkrate);         // wait for a second
+    digitalWrite(LED, LOW);   // turn the LED off by making the voltage LOW
+    delay(blinkrate);
+  }
+
+  delay(20);
+
+}
+
+long microsecondsToCentimeters(long microseconds) {
+  return microseconds / 29 / 2;
 }
 
 void readMoisture(){
   
-  // power the sensor
+  // power the sensor and LED
   digitalWrite(sensorVCC, HIGH);
   digitalWrite(blueLED, LOW);
   delay(100);
@@ -176,7 +217,6 @@ void callback(char* topic, byte* payload, unsigned int length) {
   // Switch on the LED if an 1 was received as first character
   if ((char)payload[0] == '1') {
     digitalWrite(BUILTIN_LED, LOW);   // Turn the LED on (Note that LOW is the voltage level
-    // but actually the LED is on; this is because it is active low on the ESP-01)
   } else {
     digitalWrite(BUILTIN_LED, HIGH);  // Turn the LED off by making the voltage HIGH
   }
