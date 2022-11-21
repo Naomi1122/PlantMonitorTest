@@ -41,10 +41,12 @@ Therefore, I’m going to find out the maximum reading that the sensor can take 
 
 ![3511668596212_ pic](https://user-images.githubusercontent.com/78373920/202162898-7ffd2496-584c-444c-b806-c02e142b21bc.jpg)
 
+This is the final prototype of my plant monitor and how it is positioned with the plant.
+
 
 
 ## Data visualisation
-The whole data visualised in the graph by telegraf in influxdb for the night. The peak value at beginning is when I watering the plant with a whole bottle of water.
+The whole data visualised in the graph by telegraf in influxdb for the night. The peak value at beginning is when I watering the plant with a whole bottle of water. Then the abnormal values of moisture readings have been discussed in the section above.
 <img width="1438" alt="test1" src="https://user-images.githubusercontent.com/78373920/202160364-83393011-c8bf-4ffb-afa5-e3a9cef84639.png">
 
 
