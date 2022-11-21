@@ -37,7 +37,7 @@ The figure elow shows the position of basic plant monitor when in use with a pla
 ![3501668596212_ pic](https://user-images.githubusercontent.com/78373920/202162893-bd06e456-cbc3-4e50-8142-4d8096cdd395.jpg)
 
 As shown in the graph of data collected on the night of 15th of November which is in the next section. There’s a sudden rise and then drop between half past two and three, then the reading rise back permenantly to 80s after 3. The sudden change might be a leakage of water or a shift of places of the nails.  
-Therefore, I’m going to find out the maximum reading that the sensor can take by putting the nails into water and the readings of moisture goes up to 288. The problems occurs here as the maximum reading should be 1024 of maximum testing moisture when the nails are in a place full of water.
+Therefore, I’m going to find out the maximum reading that the sensor can take by putting the nails into water and the readings of moisture goes up to 288. The problems occurs here as the maximum reading should be 1024 of maximum testing moisture when the nails are in a place full of water. Apart from the distance between the nails can make a difference on the measurements, I’m try to figure out if the depth of the nails in the soil can make a difference in the measurements as well, so I changed the depth of the nails in water from being completely submerged in water to taking out half its length above the water. However the readings of moisture are not much difference.
 
 ![3511668596212_ pic](https://user-images.githubusercontent.com/78373920/202162898-7ffd2496-584c-444c-b806-c02e142b21bc.jpg)
 
