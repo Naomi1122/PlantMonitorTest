@@ -29,7 +29,7 @@ The resistors and the DHT22 sensor are soldered onto ESP8266 so the kit is fixed
 ![3551668596214_ pic](https://user-images.githubusercontent.com/78373920/202162724-e8dd9d93-cd62-4c75-86ee-1757b02abdde.jpg)
 ![3561668596215_ pic](https://user-images.githubusercontent.com/78373920/202162726-2f0233d6-f625-4790-80ae-eb88eb3380ab.jpg)
 
-Below, the pictures show how the ultrasonic rangefinder and the bulb are connected to the basic plant monitor showed above. I used a zinc board for extension pins as the breadboard is too large in size so not suitable but the extra equipments require for more pins to connect.
+Below, the pictures show how the ultrasonic rangefinder and the bulb are connected to the basic plant monitor showed above. I used a zinc board for extension pins as the breadboard is too large in size so not suitable but the extra equipments require for more pins to connect. The coding for this part is designed as the bulb will begin to flash if the ultrasonic device detect an object within 100cm distance, and the speed of flash bulb will increase as the distance between the object and the ultrasonic device decreases.
 
 ## position of the sensor
 ![3501668596212_ pic](https://user-images.githubusercontent.com/78373920/202162893-bd06e456-cbc3-4e50-8142-4d8096cdd395.jpg)
