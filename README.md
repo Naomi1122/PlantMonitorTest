@@ -20,7 +20,6 @@
 The whole data visualised in the graph by telegraf in influxdb for the night. The peak value at beginning is when I watering the plant with a whole bottle of water.
 <img width="1438" alt="test1" src="https://user-images.githubusercontent.com/78373920/202160364-83393011-c8bf-4ffb-afa5-e3a9cef84639.png">
 
-<img width="1244" alt="2" src="https://user-images.githubusercontent.com/78373920/202160374-c6f8b906-25e6-4877-8318-078d3c8f7eb5.png">
 
 
 Data gathered when the nails are submerged in the water
@@ -30,4 +29,5 @@ Data gathered when the nails are submerged in the water
 Data gather when the nails are in the correct position since the moisture reading is in between 10-15
 <img width="1244" alt="correct1" src="https://user-images.githubusercontent.com/78373920/202163617-aab76db4-cf4a-4596-b7af-ce65cc3f1d95.png">
 
+<img width="1245" alt="p3" src="https://user-images.githubusercontent.com/78373920/203049678-a9a4e2ce-4480-410d-8cc1-8d6fe5bfde1a.png">
 
