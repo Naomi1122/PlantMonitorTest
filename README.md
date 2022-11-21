@@ -3,7 +3,7 @@
 
 
 
-## construction of the physical prototype sensor
+## Construction of the physical prototype sensor
 
 | Hardware | Description |
 | --- | --- |
@@ -16,16 +16,25 @@
 | Raspberry Pi | Store and visualise the data |
 | board | Extension of pin connection |
 
+### Detailed assembly pictures
+
 ![3541668596214_ pic](https://user-images.githubusercontent.com/78373920/202162719-599d699f-2209-420d-8df0-5733a5e260e4.jpg)
+
+The above picture shows the details of the welding of these nails and wires for the first time. Because of the instability of the moisture data measurement, I chose to re-solder the interface with the wires and install a 3D printed plastic holder for the nails showed in the below picture. 3D printing makes it more consistent with the two The distance between nails to ensure that the resistance reads the correct moisture value.
+
+![nail2](https://user-images.githubusercontent.com/78373920/203058742-a16eee42-b3a5-4623-bb26-df1af08f0e87.jpeg)
+
+The resistors and the DHT22 sensor are soldered onto ESP8266 so the kit is fixed in place as showed in the below pictures. The output pin mode and the input pin mode are also showed below. There are two wires reached out for connection of the nails.
+
 ![3551668596214_ pic](https://user-images.githubusercontent.com/78373920/202162724-e8dd9d93-cd62-4c75-86ee-1757b02abdde.jpg)
 ![3561668596215_ pic](https://user-images.githubusercontent.com/78373920/202162726-2f0233d6-f625-4790-80ae-eb88eb3380ab.jpg)
 
+Below, the pictures show how the ultrasonic rangefinder and the bulb are connected to the basic plant monitor showed above. I used a zinc board for extension pins as the breadboard is too large in size so not suitable but the extra equipments require for more pins to connect.
 
 ## position of the sensor
 ![3501668596212_ pic](https://user-images.githubusercontent.com/78373920/202162893-bd06e456-cbc3-4e50-8142-4d8096cdd395.jpg)
 ![3511668596212_ pic](https://user-images.githubusercontent.com/78373920/202162898-7ffd2496-584c-444c-b806-c02e142b21bc.jpg)
-![3521668596213_ pic](https://user-images.githubusercontent.com/78373920/202162901-c529387b-a441-4359-ad4b-1217c097f990.jpg)
-![3531668596213_ pic](https://user-images.githubusercontent.com/78373920/202162902-b8c7d255-d4af-4bde-bd5c-6049338e9772.jpg)
+
 
 
 ## Data visualisation
